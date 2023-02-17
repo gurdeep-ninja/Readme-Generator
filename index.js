@@ -99,7 +99,8 @@ function init() {
             // Call the writeToFile() function
             // First parameters is the file name we would like to write to
             // Second parameter is the contents we would like to wring into the file.
-            writeToFile("README.md", data);
+            
+            //writeToFile("README.md", data);
         }
         );
 
