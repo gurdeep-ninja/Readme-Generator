@@ -16,46 +16,77 @@ function generateMarkdown(data) {
         break;
       case "description":
         if (data[key] !== "") {
-          answers.push( "## Description\n" + data[key] + "\n");
+
+          let string = "";
+          string += `## Description\n${data[key]}`
+          string += ``
+          answers.push(string);
         };
         break;
       case "installation":
         if (data[key] !== "") {
-          answers.push( "## Installation\n" + data[key] + "\n");
+
+          let string = "";
+          string += `## Installation`
+          string += `${data[key]}`
+          answers.push(string);
+
           contents+= "[Installation](#installation)<br>";
         };
         break;
       case "usage":
         if (data[key] !== "") {
-          answers.push( "## Usage\n" + data[key] + "\n");
+
+          let string = "";
+          string += `## Usage`
+          string += `${data[key]}`
+          answers.push(string);
+
           contents+= "[Usage](#usage)<br>";
         };
         break;
       case "license":
         if (data[key] !== "") {
-          answers.push( "## License\nThis app uses the following license:" + data[key] + "\n");
+
+          let string = "";
+          string += `## License`
+          string += `This app uses the following license: ${data[key]}`
+          answers.push(string);          
+      
           contents+= "[License](#license)<br>";
         };
         break;
       case "contributing":
         if (data[key] !== "") {
-          answers.push( "## Contributing\n" + data[key] + "\n");
+
+          let string = "";
+          string += `## Contributing`
+          string += `${data[key]}`
+          answers.push(string);
+
           contents+= "[Contributing](#contributing)<br>";
         };
         break;
       case "tests":
         if (data[key] !== "") {
-          answers.push( "## Tests\n" + data[key] + "\n");
+
+          let string = "";
+          string += `## Tests`
+          string += `${data[key]}`
+          answers.push(string);
+
           contents+= "[Tests](#tests)<br>";
         };
         break;
       case "github":
         if (data[key] !== "") {
 
-          let string = "## Questions\nIf you have any questions or would like to get in touch, please see my contact details below.\n" 
-          + `[${data[key]}](https://github.com/${data[key]}` + "\n";
-
+          let string = "";
+          string += `## Questions`
+          string += `If you have any questions or would like to get in touch, please see my contact details below.`
+          string += `GitHub: [${data[key]}](https://github.com/${data[key]})`
           answers.push(string);
+
 
           contents+= "[Questions](#questions)<br>";
 
@@ -66,9 +97,10 @@ function generateMarkdown(data) {
         if (data[key] !== "") {
           let string = "";
           if(!questionsHeadingExists) {
-            string ="## Questions\n If you have any questions or would like to get in touch, please see my contact details below.\n";
+            string += `## Questions`
+            string += `If you have any questions or would like to get in touch, please see my contact details below.`
           }
-          string += `[${data[key]}](mailto:${data[key]})}`
+          string += `Email: [${data[key]}](mailto:${data[key]})`
           answers.push(string);
           contents+= "[Questions](#questions)<br>";
         };
