@@ -78,7 +78,7 @@ function getLicenseBadge(license) {
       badge = "";
   }
 
-  // Return the badge markup code
+  // Return the badge markdown code
   return badge;
 }
 

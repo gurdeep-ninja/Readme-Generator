@@ -1,9 +1,9 @@
 
 
-# This is my project ![license](https://img.shields.io/badge/license-MIT-blue)
+# My Project ![license](https://img.shields.io/badge/license-Mozilla%202.0-blue)
 
 ## Description
-The project  will help you save time to write a README.md file
+My project description
 
 ### Table of Contents
 [Installation](#installation)<br>
@@ -14,24 +14,24 @@ The project  will help you save time to write a README.md file
 [Questions](#questions)<br>
 
 ## Installation
-Clone the repository to either your remote or local server runnig node.js
+Please install the project
 
 ## Usage
-run the command node index.js to start the file generation process
+Run command
 
 ## License
-This app uses the following license: MIT License
+This app uses the following license: Mozilla Public License 2.0
 
 ## Contributing
-You can contribute by forking this repository and making pull requests.
+Pull request
 
 ## Tests
-Test 1,2,3
+test
 
 ## Questions
 
 If you have any questions or would like to get in touch, please see my contact details below.
 
-Github profile: [gurdeep-ninja](https://github.com/gurdeep-ninja)
+Github profile: [asddfasd](https://github.com/asddfasd)
 
-Email address: [gurdeepbangar@protonmailsdsd.com](mailto:gurdeepbangar@protonmailsdsd.com)
+Email address: [asdsad@asdasd.com](mailto:asdsad@asdasd.com)

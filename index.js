@@ -92,7 +92,7 @@ function init() {
         .then((response) => {
 
             // call the generateMarkDown() function by passing the user input and assign to a variable called data
-            // data will be returned as a string containing MARKDOWN textwhich is used to write the README.md file
+            // data will be returned as a string containing MARKDOWN text which is used to write the README.md file
 
             const data = generateMarkdown(response);
 
