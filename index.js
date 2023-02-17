@@ -60,6 +60,10 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
+
+    fs.writeFile(`output${path.sep}${fileName}`,data,(error) =>
+    error ? console.error (error) : console.log(`${fileName} created successfully!`)
+    )
 }
 
 // function to initialize program
@@ -67,8 +71,10 @@ function init() {
     inquirer
     .prompt(questions)
     .then((response) => {
+
       const data = generateMarkdown(response);
-      console.log(data)
+
+      writeToFile("README.md",data);
 
     }
     );    
