@@ -22,7 +22,7 @@ const questions = [
     },  
     {
         type: 'input',
-        message: 'Add usage (instructions):',
+        message: 'Add usage / instructions:',
         name: 'usage',
     },  
     {
@@ -34,12 +34,12 @@ const questions = [
     {
         type: 'input',
         message: 'Please enter how others can contribute:',
-        name: 'contribution',
+        name: 'contributing',
     },  
     {
         type: 'input',
         message: 'Add test instructions: ',
-        name: 'test',
+        name: 'tests',
     },  
     {
         type: 'input',
@@ -61,8 +61,11 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer
     .prompt(questions)
-    .then((response) =>
-      console.log(response)
+    .then((response) => {
+      const data = generateMarkdown(response);
+      console.log(data)
+
+    }
     );    
 
 }
