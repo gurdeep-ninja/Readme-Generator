@@ -23,164 +23,140 @@ function generateMarkdown(data) {
     switch (key) {
       case "title":
         if (data[key] !== "") {
-          // Push string to array
-          answers.push(`# ${data[key]}\n`);
+
+          // Push project title to array
+          answers.push(`# ${data[key]} ${getLicenseBadge(data.license)}\n`);
+
         }
         break;
       case "description":
         if (data[key] !== "") {
 
+          // Push project description to array
           let string = "";
           string += `## Description\n${data[key]}\n`;
           answers.push(string);
-          
+
         };
         break;
       case "installation":
         if (data[key] !== "") {
 
+          // Push project install instructions to array
           let string = "";
           string += `## Installation\n${data[key]}\n`;
           answers.push(string);
 
-          contents+= "[Installation](#installation)<br>\n";
+          // add this section to the table of contents
+          contents += "[Installation](#installation)<br>\n";
         };
         break;
       case "usage":
         if (data[key] !== "") {
 
+          // Push project usage to array          
           let string = "";
           string += `## Usage\n${data[key]}\n`;
           answers.push(string);
 
-          contents+= "[Usage](#usage)<br>\n";
+          // add this section to the table of contents
+          contents += "[Usage](#usage)<br>\n";
         };
         break;
       case "license":
         if (data[key] !== "") {
 
+          // Push project license to array          
           let string = "";
           string += `## License\n`
           string += `This app uses the following license: ${data[key]}\n`;
-          answers.push(string);          
-      
-          contents+= "[License](#license)<br>\n";
+          answers.push(string);
+
+          // add this section to the table of contents
+          contents += "[License](#license)<br>\n";
         };
         break;
       case "contributing":
         if (data[key] !== "") {
 
+          // Push project contributing to array          
           let string = "";
           string += `## Contributing\n${data[key]}\n`;
           string += ``
           answers.push(string);
 
-          contents+= "[Contributing](#contributing)<br>\n";
+          // add this section to the table of contents
+          contents += "[Contributing](#contributing)<br>\n";
         };
         break;
       case "tests":
         if (data[key] !== "") {
 
+          // Push project tests to array                    
           let string = "";
           string += `## Tests\n${data[key]}\n`;
           string += ``
           answers.push(string);
 
-          contents+= "[Tests](#tests)<br>\n";
+          // add this section to the table of contents
+          contents += "[Tests](#tests)<br>\n";
         };
         break;
       case "github":
         if (data[key] !== "") {
 
+          // Push users github details to array                    
           let string = "";
           string += `## Questions\n`
-          string += `If you have any questions or would like to get in touch, please see my contact details below.\n`;
+          string += `If you have any questions or would like to get in touch, please see my contact details below.<br>\n`;
           string += `GitHub: [${data[key]}](https://github.com/${data[key]})<br>\n`;
           answers.push(string);
 
+          // add this section to the table of contents
+          contents += "[Questions](#questions)<br>\n";
 
-          contents+= "[Questions](#questions)<br>\n";
-
+          // set to true the heading is not repeated when adding email to questions section.
           questionsHeadingExists = true;
         };
         break;
       case "email":
         if (data[key] !== "") {
+
+          // Push users email details to array                    
           let string = "";
-          if(!questionsHeadingExists) {
+
+          // If the Questions heading is not present, create it
+          if (!questionsHeadingExists) {
             string += `## Questions\n`;
-            string += `If you have any questions or would like to get in touch, please see my contact details below.\n`;
-            contents+= "[Questions](#questions)<br>\n";
+            string += `If you have any questions or would like to get in touch, please see my contact details below.<br>\n`;
+
+            // add this section to the table of contents            
+            contents += "[Questions](#questions)<br>\n";
           }
           string += `Email: [${data[key]}](mailto:${data[key]})<br>\n`;
           answers.push(string);
-          
+
         };
         break;
     }
   }
-  return answers.splice(2,0,contents).join("");
+  // Add the Table of Contents (contents) to element 2 of the answers array
+  answers.splice(2, 0, contents);
 
+  // convert the answers array to a string
+  const answersString = answers.join("");
 
-
-  // console.log(data)
-  //   const {
-  //     title,
-  //     description,
-  //     installation,
-  //     usage,
-  //     license,
-  //     contributing,
-  //     tests,
-  //     github,
-  //     email
-  //   } = data;
-
-  //   return `
-
-  // # ${title} ${getLicenseBadge(license)}
-
-  // ## Description
-  // ${description}
-
-  // ### Table of Contents
-  // [Installation](#installation)<br>
-  // [Usage](#usage)<br>
-  // [License](#license)<br>
-  // [Contributing](#contributing)<br>
-  // [Tests](#tests)<br>
-  // [Questions](#questions)<br>
-
-  // ## Installation
-  // ${installation}
-
-  // ## Usage
-  // ${usage}
-
-  // ## License
-  // This app uses the following license: ${license}
-
-  // ## Contributing
-  // ${contributing}
-
-  // ## Tests
-  // ${tests}
-
-  // ## Questions
-
-  // If you have any questions or would like to get in touch, please see my contact details below.
-
-  // Github profile: [${github}](https://github.com/${github})
-
-  // Email address: [${email}](mailto:${email})
-  // `;
+  //return the completed README.md contents
+  return  answersString;
 }
+
 
 // a function to get a license badge
 function getLicenseBadge(license) {
 
   let badge = "";
 
+  // Switch to select which license badge to include
   switch (license) {
     case "Apache License 2.0":
       badge = "![license](https://img.shields.io/badge/license-Apache%202.0-blue)";
@@ -206,4 +182,5 @@ function getLicenseBadge(license) {
   return badge;
 }
 
+// node.js export this modules generateMarkdown function
 module.exports = generateMarkdown;

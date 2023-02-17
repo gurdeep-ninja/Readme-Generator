@@ -72,7 +72,7 @@ function writeToFile(fileName, data) {
     // Ise the writeFile() method of the fs module to write the file with data
     // the Path module is used to determine the file system separator (i.e Windows/Linux etc)
     fs.writeFile(`output${path.sep}${fileName}`, data, (error) =>
-    
+
         // Upon the call back (success or failure), display the result to the user
         // An error is displayed if theres an issue
         // If successful, the file name is displayed to the user
@@ -99,7 +99,7 @@ function init() {
             // Call the writeToFile() function
             // First parameters is the file name we would like to write to
             // Second parameter is the contents we would like to wring into the file.
-            
+
             writeToFile("README.md", data);
         }
         );
