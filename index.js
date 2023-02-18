@@ -14,52 +14,67 @@ const generateMarkdown = require("./utils/generateMarkdown");
 // array of questions for user
 const questions = [
     {
+        // Title
         type: 'input',
         message: 'Add project title:',
         name: 'title',
+        // Added a default title
+        default: 'Default Project Title'
     },
     {
+        // Description
         type: 'input',
         message: 'Add project description:',
         name: 'description',
+        // Added a default description
+        default: "Vivamus id maximus ipsum. Donec quis eleifend leo, vitae pulvinar eros. Donec dapibus eros finibus mi rutrum consectetur."
     },
     {
+        // Installation instructions
         type: 'input',
         message: 'Add installation guidelines:',
         name: 'installation',
     },
     {
+        // Usage instructions
         type: 'input',
         message: 'Add usage / instructions:',
         name: 'usage',
     },
     {
+        // License type
         type: 'list',
         message: 'Select a license type:',
         choices: [
+            "None",
             "Apache License 2.0",
-            "MIT License",
             "GNU General Public License v3.0",
+            "MIT License",
             "Mozilla Public License 2.0"
         ],
         name: 'license',
     },
     {
+        // Contribution 
         type: 'input',
         message: 'Please enter how others can contribute:',
         name: 'contributing',
     },
+    
     {
+        // Tests
         type: 'input',
         message: 'Add test instructions: ',
         name: 'tests',
     },
     {
+        // GitHub username
         type: 'input',
         message: 'Your github username: ',
         name: 'github',
     },
     {
+        // Email address
         type: 'input',
         message: 'Your email address: ',
         name: 'email',
